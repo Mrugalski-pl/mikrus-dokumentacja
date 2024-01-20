@@ -1,0 +1,7 @@
+baseURL: 'https://wiki.mikr.us/'
+languageCode: pl
+title: Mikrus - Don't Panic!
+theme: "PaperMod"
+params:
+  assets:
+    disableFingerprinting: true
