@@ -2,10 +2,7 @@
 
 Najprostszym sposobem na podpięcie **własnej domeny** do serwera jest zupełnie darmowa usługa CloudFlare.
 
-<aside>
-🔥 **UWAGA**: nie stosuj tego poradnika dla darmowych subdomen dostępnych w panelu. One działają natychmiast, bez żadnej dodatkowej konfiguracji po stronie CloudFlare
-
-</aside>
+>🔥 **UWAGA**: nie stosuj tego poradnika dla darmowych subdomen dostępnych w panelu. One działają natychmiast, bez żadnej dodatkowej konfiguracji po stronie CloudFlare
 
 ### **CO TO JEST CLOUDFLARE?**
 

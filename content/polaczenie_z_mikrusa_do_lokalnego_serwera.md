@@ -1,9 +1,6 @@
 # Połączenie z Mikrusa do lokalnego serwera
 
-<aside>
-💡 Autorem poradnika jest ***[Krzysztof Romanowski](http://krzysztofromanowski.pl)***
-
-</aside>
+> 💡 Autorem poradnika jest ***[Krzysztof Romanowski](http://krzysztofromanowski.pl)***
 
 Serwer Mikrusa możesz wykorzystać do połączenia się do swojego lokalnego serwera i nie potrzebujesz w tym celu  stawiać usługi typu VPN.
 
