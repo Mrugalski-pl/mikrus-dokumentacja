@@ -56,6 +56,6 @@ jobs:
           name: site
       - run: ls
       - name: unpack site
-        run: zip -d site.zip
+        run: unzip site.zip
       - run: ls
       
