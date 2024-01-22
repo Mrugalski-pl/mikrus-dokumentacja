@@ -38,7 +38,7 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Pack builded site
-        run: cd public && zip -r ./site.zip . && cd ..
+        run: cd public && zip -r ../site.zip . && cd ..
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
