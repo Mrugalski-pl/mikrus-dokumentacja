@@ -37,10 +37,12 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Pack builded site
+        run: zip -r site.zip ./public
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          path: site.zip
           name: site
 
   # Deployment job
@@ -52,5 +54,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site
+      - run: ls
+      - name: unpack site
+        run: zip -d site.zip
       - run: ls
       
