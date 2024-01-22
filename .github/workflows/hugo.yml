@@ -54,8 +54,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site
-      - run: ls
-      - name: unpack site
-        run: unzip site.zip && rm site.zip
-      - run: ls
+      - name: copy to wiki hosting
+        run: mkdir -p .ssh && echo ${{ secrets.FRONT_WIKI_SSH_KEY }} > .ssh/id_rsa && scp site.zip ${{ secrets.FRONT_WIKI_SSH_COMMAND }}:/var/www/wiki/ 
       
