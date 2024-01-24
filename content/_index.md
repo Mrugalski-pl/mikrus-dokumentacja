@@ -2,6 +2,8 @@
 
 Poniżej znajdziesz wszytko, co jest Ci potrzebne do rozpoczęcia przygody z serwerami Mikrusa. 
 
+> 💡 Chcesz zaproponować jakieś zmiany? A może chcesz napisać dodatkowy poradnik? Ta dokumentacja [jest dostępna na GitHub](https://github.com/Mrugalski-pl/mikrus-dokumentacja)!
+
 ### Podstawy
 - [Logowanie na serwery](logowanie_na_serwery)
 - [Udostępnione porty](udostepnione_porty)
