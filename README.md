@@ -2,7 +2,7 @@
 To repozytorium zawiera pliki źródłowe dla wiki znajdującej się pod adresem [wiki.mikr.us](https://wiki.mikr.us/)
 
 # Chcę coś dodać od siebie!
-Wspaniale! Pliki wiki znajdują się w katalogu `/content`
+Wspaniale! Pliki wiki (w formacie Markdown) znajdują się w katalogu `/content`
 
 Aby pobrać i zbudować dokumentację użyj
 ```bash
