@@ -53,7 +53,7 @@ Poniżej znajdziesz wszytko, co jest Ci potrzebne do rozpoczęcia przygody z ser
 Jeśli powyższe materiały nie okazały się wystarczająco pomocne, zawsze możesz poszukać pomocy w tych dwóch miejscach:
 
 - [**Grupa na Facebooku**](https://www.facebook.com/groups/mikrusy)
-- [**Serwer na Discord**](https://discord.gg/hfcqjgkppq)
+- [**Serwer na Discord**](https://discord.gg/hFcqJGkppq)
 
 Potrzebujesz więcej wiedzy? 👇 
 
