@@ -38,6 +38,7 @@ Poniżej znajdziesz wszytko, co jest Ci potrzebne do rozpoczęcia przygody z ser
 - [Reverse Proxy na nginX](reverse_proxy_na_nginx)
 - [Django + PostgreSQL](django_postgresql)
 - [Połączenie z Mikrusa do lokalnego serwera](polaczenie_z_mikrusa_do_lokalnego_serwera)
+- [Ograniczenie adresów IP które mają dostęp serwera w NGINX](nginx_ograniczenie_dostepu_po_ip)
 
 ### Częste problemy i ich rozwiązania
 
