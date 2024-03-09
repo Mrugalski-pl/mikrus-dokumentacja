@@ -50,6 +50,7 @@ Poniżej znajdziesz wszytko, co jest Ci potrzebne do rozpoczęcia przygody z ser
 - [FAQ - najczęściej zadawane pytania](faq_najczesciej_zadawane_pytania)
 - [Który serwer Mikrusa powinienem wybrać?](https://mikr.us/ktory)
 - [Ograniczenia techniczne Mikrusa](ograniczenia_techniczne_mikrusa)
+- [Program przestaje działać gdy zamykam ssh!](program_przestaje_dzialac_gdy_zamykam_ssh)
 
 Jeśli powyższe materiały nie okazały się wystarczająco pomocne, zawsze możesz poszukać pomocy w tych dwóch miejscach:
 
