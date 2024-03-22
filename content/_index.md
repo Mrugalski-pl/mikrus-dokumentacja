@@ -2,7 +2,7 @@
 
 Poniżej znajdziesz wszytko, co jest Ci potrzebne do rozpoczęcia przygody z serwerami Mikrusa. 
 
-> 💡 Chcesz zaproponować jakieś zmiany? A może chcesz napisać dodatkowy poradnik? Ta dokumentacja [jest dostępna na GitHub](https://github.com/Mrugalski-pl/mikrus-dokumentacja)!
+> 💡 Szukasz informacji specyficznych dla serwera [frog?](frog) 🐸 
 
 ### Podstawy
 - [Logowanie na serwery](logowanie_na_serwery)
@@ -56,6 +56,8 @@ Jeśli powyższe materiały nie okazały się wystarczająco pomocne, zawsze mo�
 
 - [**Grupa na Facebooku**](https://www.facebook.com/groups/mikrusy)
 - [**Serwer na Discord**](https://discord.gg/hFcqJGkppq)
+
+> 💡 Chcesz zaproponować jakieś zmiany? A może chcesz napisać dodatkowy poradnik? Ta dokumentacja [jest dostępna na GitHub](https://github.com/Mrugalski-pl/mikrus-dokumentacja)!
 
 Potrzebujesz więcej wiedzy? 👇 
 
