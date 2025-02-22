@@ -10,7 +10,7 @@ To serwis, który umożliwia cachowanie statycznego contentu na Twojej stronie (
 
 ### **PO CO MI CLOUDFLARE?**
 
-Adresacja IPv6 działa tylko u ludzi, których dostawca internetu oferuje obsługę adresów IPv6, a to niestety nie jest naszym kraju częste. Z tego powodu, Twoja strona postawiona na Mikrusie z własną domeną może u Ciebie działać poprawnie, a u Twojego kolegi nie będzie działać wcale.
+Adresacja IPv6 działa tylko u ludzi, których dostawca internetu oferuje obsługę adresów IPv6, a to niestety nie jest w naszym kraju częste. Z tego powodu, Twoja strona postawiona na Mikrusie z własną domeną może u Ciebie działać poprawnie, a u Twojego kolegi nie będzie działać wcale.
 
 Aby temu zaradzić, warto zaopatrzyć się w tunel IPv4 → IPv6, a taki oferuje CloudFlare.
 
