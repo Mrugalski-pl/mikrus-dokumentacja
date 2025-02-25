@@ -142,3 +142,66 @@
     });
 </script>
 {{- end }}
+
+<script>
+// Tworzymy element div dla belki
+function createCornerRibbon() {
+  // Tworzenie elementu div dla belki
+  const ribbon = document.createElement('div');
+  ribbon.id = 'mikrus-ribbon';
+  
+  // Tworzenie linku wewnątrz belki
+  const link = document.createElement('a');
+  link.href = 'https://mikr.us';
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = 'MIKR.US';
+  
+  // Dodanie linku do belki
+  ribbon.appendChild(link);
+  
+  // Dodanie belki do body dokumentu
+  document.body.appendChild(ribbon);
+  
+  // Dodanie stylu CSS dla belki
+  const style = document.createElement('style');
+  style.textContent = `
+    #mikrus-ribbon {
+      position: fixed;
+      top: 25px;
+      right: -50px;
+      transform: rotate(45deg);
+      width: 200px;
+      background-color: #e74c3c;
+      text-align: center;
+      line-height: 40px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 9999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    
+    #mikrus-ribbon a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 0 10px;
+      transition: background-color 0.3s;
+    }
+    
+    #mikrus-ribbon a:hover {
+      background-color: #c0392b;
+    }
+  `;
+  
+  document.head.appendChild(style);
+}
+
+// Wywołujemy funkcję po załadowaniu strony
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', createCornerRibbon);
+} else {
+  createCornerRibbon();
+}
+</script>
