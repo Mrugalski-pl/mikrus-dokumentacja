@@ -14,7 +14,7 @@ Serwer, o którym mowa działa jak klasyczny hosting współdzielony. Jeśli zec
 
 Link: [https://outsider.mikr.us:2222](https://outsider.mikr.us:2222/) 
 
-Loginem jest nazwa Twojego serwera np. x921
+Loginem jest nazwa Twojego serwera np. x921 / karol123
 
 Hasło otrzymasz przy aktywacji usługi w panelu Mikrusa (będzie w logach operacji).
 
