@@ -3,6 +3,10 @@
 - **Czy mogę zmienić system operacyjny np. na Ubuntu/Debian?**
     
     Nie ma takiej możliwości. Jeśli chcesz mieć dostęp do kilkunastu różnych systemów operacyjnych, [przejdź na płatną ofertę Mikrusa](https://mikr.us).
+
+- **Nie mam dostępu do niektórych plików i nie mogę instalować aplikacji**
+
+  Domyślnie logujesz się na konto o nazwie FROG - jest ono mocno ograniczone. Aby przejść na konto roota (głównego admina), wpisz polecenie: "su -". Hasło do roota jest domyślnie takie samo jak do Twojego użytkownika.
     
 - **Dlaczego Linux Alpine?**
     
