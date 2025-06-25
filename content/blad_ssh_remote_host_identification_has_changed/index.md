@@ -19,7 +19,7 @@ Problem możemy rozwiązać na dwa sposoby — ręczny i w pełni automatyczny.
 **Metoda automatyczna** polega na wpisaniu poniższego polecenia, podstawiając pod serwer i port te dane, które widoczne są w komunikacie z błędem (przedostatnia linia komunikatu).
 
 ```bash
-ssh-keygen -R "[[srv08.mikr.us](http://srv08.mikr.us/)]:10100"
+ssh-keygen -R "srv08.mikr.us:10100"
 ```
 
 [Powrót do strony głównej](/)
