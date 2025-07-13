@@ -1,6 +1,6 @@
 # Uruchomienie aplikacji Node.js
 
-> 💡 Autorem poradnika jest **[Ozelot](https://ozelot.ovh)**.
+> 💡 Autorem poradnika jest **[Ozelot](https://ozelot.fyi)**.
 
 W tym poradniku pokażę ci jak uruchomić na serwerze swoją aplikację napisaną w technologii **Node.js**. Zajmiemy się tutaj bardzo podstawowym przykładem prostej aplikacji takiej jak np. boty Discord, process workery itp.
 
