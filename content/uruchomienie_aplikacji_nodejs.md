@@ -17,7 +17,7 @@ Aplikacja którą chcemy uruchomić może być zbudowana w mniej-więcej taki sp
 
 ## Umieszczenie plików aplikacji na serwerze
 
-Na początku umieścimy wszystkie pliki aplikacji (pomijając katalog `node_modules`) na serwerze [na przykład w ten sposób](/jak_wysylac_pliki_na_mikrusa), w wybranym katalogu. Na potrzeby poradnika użyjemy katalogu `/srv/app`.
+Na początku umieścimy wszystkie pliki aplikacji (pomijając katalog `node_modules` i plik `package-lock.json`) na serwerze [na przykład w ten sposób](/jak_wysylac_pliki_na_mikrusa), w wybranym katalogu. Na potrzeby poradnika użyjemy katalogu `/srv/app`.
 
 ## Instalacja Node.js
 
