@@ -40,6 +40,7 @@ Poniżej znajdziesz wszystko, co jest Ci potrzebne do rozpoczęcia przygody z se
 - [Połączenie z Mikrusa do lokalnego serwera](polaczenie_z_mikrusa_do_lokalnego_serwera)
 - [Ograniczenie adresów IP które mają dostęp serwera w NGINX](nginx_ograniczenie_dostepu_po_ip)
 - [Nginx - publikacja prostej strony](nginx_publikacja_prostej_strony)
+- [Uruchomienie aplikacji Node.js](uruchomienie_aplikacji_nodejs)
 
 ### Częste problemy i ich rozwiązania
 
