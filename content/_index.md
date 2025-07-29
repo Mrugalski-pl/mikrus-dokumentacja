@@ -32,6 +32,7 @@ Poniżej znajdziesz wszystko, co jest Ci potrzebne do rozpoczęcia przygody z se
 ### Konfiguracja usług
 
 - [Podpięcie domeny przez CloudFlare](podpiecie_domeny_przez_cloudflare)
+- [Zmiana portu używanego przez domenę w Cloudflare](zmiana_portu_domeny_w_cloudflare)
 - [Apache + PHP + MySQL](apache_php_mysql)
 - [NginX + PHP + MySQL](nginx_php_mysql)
 - [Konfiguracja MySQL/MariaDB](konfiguracja_mysql_mariadb)
