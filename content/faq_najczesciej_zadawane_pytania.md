@@ -68,13 +68,7 @@
 
 - {{<rawhtml>}}<h4 id="imie-na-srvxx">{{</rawhtml>}} Skąd mam wiedzieć na jakim serwerze głównym (`srvXX`) jest mój serwer? {{<rawhtml>}}</h4><a href="#imie-na-srvxx" class="anchor" hidden>#</a>{{</rawhtml>}}
 
-    Przykładowo, dla serwera `monika100`:
-
-    - Najłatwiej jest wejsć na adres http://monika100.mikrus.xyz i przeczytać adres (będzie pogrubioną czcionką zakończony na `.mikr.us`). Jeżeli przeglądarka wyświetli błąd lub problem z certyfikatem należy upewnić się że wchodzimy na adres przez http (nie http**s**).
-
-    - Możesz także wysłać zapytanie DNS o CNAME do domeny `monika100.mikrus.xyz`. Najłatwiej to zrobić tuaj => https://toolbox.googleapps.com/apps/dig/#CNAME/
-    
-
+    Przykładowo, dla serwera `monika100` otwórz stronę http://monika100.mikrus.xyz i przeczytaj adres (będzie większą czcionką zakończony na `.mikr.us`). Jeżeli przeglądarka wyświetli błąd lub problem z certyfikatem należy upewnić się że wchodzimy na adres przez http (nie http**s**).
 ## Co wolno, a czego nie wolno
 
 - Czy na Mikrusie można postawić serwer Minecrafta?
