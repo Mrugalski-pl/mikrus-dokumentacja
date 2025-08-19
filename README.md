@@ -16,7 +16,7 @@ następnie przejdź do katalogu
 ```bash
 cd mikrus-dokumentacja
 ```
-zbuduj za pomocą, wymaga [hugo](https://gohugo.io/categories/installation/) w wersji przynajmniej `0.125.7`
+zbuduj za pomocą, wymaga [hugo](https://gohugo.io/installation/) w wersji przynajmniej `0.125.7`
 ```bash
 hugo
 ```
