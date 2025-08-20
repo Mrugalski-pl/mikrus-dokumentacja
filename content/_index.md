@@ -23,6 +23,7 @@ Poniżej znajdziesz wszystko, co jest Ci potrzebne do rozpoczęcia przygody z se
 - [Współdzielone bazy danych](wspoldzielone_bazy_danych)
 - [Strych (backupy)](strych_backupy)
 - [Skrypty NOOBS](skrypty_noobs)
+- [Współdzielona domena (wykr.es)](wspoldzielona_domena)
 - [Polecanie serwera innym](polecanie_serwera_innym)
 - [Pusher](pusher)
 - [NextCloud](nextcloud)
