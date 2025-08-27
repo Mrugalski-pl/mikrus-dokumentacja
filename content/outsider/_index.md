@@ -60,7 +60,7 @@ v=spf1 a mx include:outsider.mikr.us ~all
 **Jeżeli przy powyższej konfiguracji SPF nie będzie działał poprawnie**, sprawdź sekcję __Zarządzanie DNS__ w panelu Outsidera. Znajdziesz tam rekord SPF w formie:
 
 ```
-"v=spf1 a mx ip4:104.244.75.18 ~all"
+"v=spf1 a mx ip4:95.217.59.141 ~all"
 ```
 
 Przekopiowanie go do Cloudflare powinno rozwiązać problem.
