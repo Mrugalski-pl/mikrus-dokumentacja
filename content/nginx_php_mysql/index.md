@@ -16,7 +16,7 @@ apt install nginx php-fpm mariadb-server
 
 Serwer już stoi. Czas aktywować PHP.
 
-Edytuj plik **`/etc/nginx/sites-enabled/default`** i spraw, aby poniższy fragment wyglądał w nim jak na obrazku poniżej 👇 
+Edytuj plik **`/etc/nginx/sites-enabled/default`** i spraw, aby poniższy fragment wyglądał w nim jak na obrazku poniżej, dopasowując swoją wersję PHP, np. **php8.4-fpm.sock** 👇 
 
 ![](ngnix.png)
 
