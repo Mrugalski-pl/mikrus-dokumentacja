@@ -51,6 +51,7 @@ Poniżej znajdziesz wszystko, co jest Ci potrzebne do rozpoczęcia przygody z se
 - [Error 521 na CloudFlare](error_521_na_cloudflare)
 - [Cytrus nie podaje stron](cytrus_nie_podaje_stron)
 - [Błąd SSH (remote host identification has changed!)](blad_ssh_remote_host_identification_has_changed)
+- [Na serwerze brakuje miejsca - no space left on device](sprzatanie_dysku)
 - [Too many authentication failures [preauth]](too_many_authentication_failures_preauth)
 - [Który serwer Mikrusa powinienem wybrać?](https://mikr.us/ktory)
 - [Ograniczenia techniczne Mikrusa](ograniczenia_techniczne_mikrusa)
