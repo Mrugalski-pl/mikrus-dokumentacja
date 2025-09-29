@@ -1,6 +1,6 @@
 # Konfiguracja MySQL/MariaDB
 
-Chcąc postawić na Mikrusie własną bazę danych (możesz także [skorzystać ze współdzielonej](Wspo%CC%81%C5%82dzielone%20bazy%20danych%20139d979d5105492282aef2eb20bfc208.md) jeśli chcesz), wykonaj poniższe kroki.
+Chcąc postawić na Mikrusie własną bazę danych (możesz także [skorzystać ze współdzielonej](/wspoldzielone_bazy_danych), wykonaj poniższe kroki.
 
 Zaktualizuj pakiety w systemie
 
