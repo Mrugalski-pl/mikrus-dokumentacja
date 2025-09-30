@@ -19,3 +19,5 @@ A na końcu strony kliknij ***Deploy*** by wprowadzić zmiany. Będą one widocz
 
 Krótki film pokazujący jak to zrobić od początku do końca:
 {{< youtube YBqS75FWxH0 >}}
+
+[Powrót do strony głównej](/)
