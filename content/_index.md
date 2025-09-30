@@ -14,21 +14,22 @@ Poniżej znajdziesz wszystko, co jest Ci potrzebne do rozpoczęcia przygody z se
 ### Mikrusowe technologie
 
 - [O co chodzi z IPv6?](o_co_chodzi_z_ipv6)
-- [Cytrus](cytrus)
-- [Szybka subdomena](szybka_subdomena)
-- [Outsider](outsider)
-- [Storage](storage)
-- [Amfetamina](amfetamina)
-- [M.A.R.I.A.N](marian)
+- [Cytrus](cytrus) - współdzielony serwer WWW
+- [N8N na Mikrusie](n8n_na_mikrusie) - automatyzacja zadań
+- [Szybka subdomena](szybka_subdomena) - wystaw swoje usługi na świat
+- [Outsider](outsider) - współdzielony hosting z DirectAdmin
+- [Storage](storage) - dodatkowa przestrzeń na pliki
+- [Amfetamina](amfetamina) - wzmocnienie serwera na życzenie
+- [M.A.R.I.A.N](marian) - system do naprawy usterek serwera
 - [Współdzielone bazy danych](wspoldzielone_bazy_danych)
-- [Strych (backupy)](strych_backupy)
-- [Skrypty NOOBS](skrypty_noobs)
+- [Strych (backupy)](strych_backupy) - miejsce na Twoje backupy
+- [Skrypty NOOBS](skrypty_noobs) - instalatory aplikacji
 - [Współdzielona domena (wykr.es)](wspoldzielona_domena)
 - [Polecanie serwera innym](polecanie_serwera_innym)
-- [Pusher](pusher)
+- [Pusher](pusher) - automat do wysyłki maili
 - [NextCloud](nextcloud)
 - [Wireguard](wireguard)
-- [Dashboard](dashboard)
+- [Dashboard](dashboard) - akcje serwera wywoływane jednym kliknięciem
 
 ### Konfiguracja usług
 
