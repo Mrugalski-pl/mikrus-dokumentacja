@@ -10,7 +10,7 @@ Jeśli wiesz, co robisz i nie potrzebujesz przetrzymywać archiwalnych logów na
 journalctl --vacuum-size=10M
 ```
 
-Jeśli miejsca nadal brakuje, możesz wymusisz rotację aktualnych logów systemowych. W zależności od Twoich ustawień może to zwolnić miejsce, ale nie musi.
+Jeśli miejsca nadal brakuje, możesz wymusić rotację aktualnych logów systemowych. W zależności od Twoich ustawień może to zwolnić miejsce, ale nie musi.
 
 ```bash
 logrotate -f /etc/logrotate.conf
