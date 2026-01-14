@@ -12,7 +12,7 @@ Baza wiedzy jest systematycznie uzupełniana o nowe znaleziska. Chcesz coś do n
 * [Koncepcje używane w Nginx - wprowadzenie do tematu](https://dev.to/aemiej/nginx-concepts-i-wish-i-knew-years-ago-23o0)
 * [Podręcznik administratora nginx - wszystko, co musisz wiedzieć](https://github.com/trimstray/nginx-admins-handbook)
 * [Częste błędy przy konfiguracji nginx, stwarzające zagrożenia dla security](https://blog.detectify.com/2020/11/10/common-nginx-misconfigurations/)
-* [Przyspieszanie Nginx (9x!) z użyciem thread-pools](https://www.nginx.com/blog/thread-pools-boost-performance-9x/)
+* [Przyspieszanie Nginx (9x!) z użyciem thread-pools](https://www.f5.com/company/blog/nginx/thread-pools-boost-performance-9x)
 * [Jak działa rozwiązywanie DNSa w systemie Linux?](https://zwischenzugs.com/2018/06/08/anatomy-of-a-linux-dns-lookup-part-i/)
 * [Narzędzie wyjaśniające polecenia shellowe](https://explainshell.com/)
 * [Wszystko, co musisz wiedzieć o Syslogu](https://devconnected.com/syslog-the-complete-system-administrator-guide/)
