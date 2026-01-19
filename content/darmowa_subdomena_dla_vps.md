@@ -1,24 +1,58 @@
 # Darmowa subdomena dla VPS
 
-Serwery VPS na Mikrusie nie posiadają własnych adresów IPv4, a jedynie udostępnione porty TCP. Nie za fajnie byłoby jednak mieć adres strony w stylu mojastrona:12345 ☹️
+Serwery VPS na Mikrusie nie posiadają własnych adresów IPv4, a jedynie udostępnione porty TCP. Adres w stylu "mojastrona:12345" (gdzie 12345 to Twój numer portu TCP) nie wygląda zbyt profesjonalnie.
 
-Masz do dyspozycji jednak adres IPv6, dzięki czemu podpinając swoją domenę w usłudze CloudFlare, możesz przetunelować ruch IPv4 na IPv6 i bez najmniejszych problemów pokazać swoją stronę czytelnikom. Tylko... na początek musisz mieć/kupić domenę.
+Na szczęście masz do dyspozycji **darmowe subdomeny Mikrusa**, które możesz podpiąć na dwa sposoby:
 
-Tak się składa, że w panelu Mikrusa możesz wyklikać sobie darmową subdomenę w naszej domenie i podpiąć ją do swojego serwera.
+## Metoda 1: Subdomena dynamiczna (automatyczna)
 
-Inną opcją (dostępną głównie dla serwerów [frog](/frog) lecz działa ona dla wszystkich serwerów) jest domena **wykr.es**!
-- **serwer-numer_portu.wykr.es**
+Subdomeny dynamiczne działają same (bez żadnej konfiguracji) według ustalonego schematu - wystarczy, że uruchomisz aplikację na odpowiednim porcie. Masz do wyboru **dwie domeny**, w zależności od potrzeb:
 
-Jeśli więc Twój serwer VPS jest na maszynie **frog01**, a aplikacja webowa słucha na porcie **20100**, to adres Twojej domeny to:
+### wykr.es - dla aplikacji na portach z puli Twoich portów IPv4
 
-- **frog01-20100.wykr.es**
-- dla portu **30999** na **srv01** będzie to **srv01-30999.wykr.es**
+Format: **serwer-numer_portu.wykr.es**
 
-Ważne uwagi:
+Przykłady:
+- **frog01-20100.wykr.es** (dla serwera frog01, port 20100)
+- **srv55-30999.wykr.es** (dla serwera srv55, port 30999)
 
-- subdomena obsługuje ruch HTTP oraz HTTPS
-- obsługę SSL masz w komplecie. Nie konfiguruj żadnego certyfikatu, Let's Encrypta itp po swojej stronie. Jest to zbyteczne.
-- Domena wskazuje na Twój adres IPv6, więc Twój serwer webowy (np. Apache czy nginX) musi słuchać na tej adresacji (domyślnie słuchają na IPv4!)
-- **domeny NIE da się użyć do logowania przez SSH** czy do łączenia się z portami innymi niż 80/443
+**Ważne ograniczenia:**
+- Możesz używać **tylko portów z puli dostępnej w panelu** (tych, które masz przydzielone)
+- Umożliwia hostowanie **do kilku aplikacji** (tyle, ile masz portów w puli)
+- Subdomena obsługuje ruch HTTP oraz HTTPS
+- Obsługa SSL jest automatyczna - nie konfiguruj własnych certyfikatów, nie instaluj certbota itp.
+- **NIE działa dla SSH** ani innych protokołów - tylko HTTP/HTTPS
+
+### mikrus.cloud - dla zaawansowanych użytkowników (do portów IPv6)
+
+Format: **serwer-numer_portu.mikrus.cloud**
+
+**Zalety:**
+- Możesz użyć **dowolnego numeru portu** (teoretycznie do kilkudziesięciu tysięcy aplikacji)
+- Większa elastyczność w konfigurowaniu
+
+**Wymagania:**
+- Aplikacja **musi słuchać na adresacji IPv6** (nie IPv4!)
+
+
+## Metoda 2: Subdomena dedykowana (wyklikiwana w panelu)
+
+Oprócz subdomen dynamicznych, możesz również **skonfigurować własną subdomenę dedykowaną** bezpośrednio w panelu użytkownika Mikrusa.
+
+**Zalety:**
+- Możesz wybrać własną, łatwą do zapamiętania nazwę (np. mojaplikacja.bieda.it)
+- Większa kontrola nad konfiguracją
+- Bardziej profesjonalny wygląd niż automatycznie generowana nazwa
+
+**Jak to działa:**
+1. Wchodzisz do panelu Mikrusa do działu z [subdomenami](https://mikr.us/panel/?a=domain)
+2. Wyklikujesz nową subdomenę w odpowiedniej sekcji
+3. Przypisujesz ją do swojego serwera VPS i wybranego portu
+
+**Uwagi:**
+- Subdomena dedykowana również wymaga, aby aplikacja słuchała na IPv6
+- Automatyczna obsługa SSL działa tak samo, jak w przypadku subdomen dynamicznych
+- Twoja aplikacja może podawać ruch jako HTTP (plaintext) lub HTTPS (szyfrowany) - zaznacz odpowiednią opcję w panelu
+- niezależnie czy Twoja aplikacja podaje ruch szyfrowany, czy nie, to użytkownik zawsze dostanie szyfrowaną treść.
 
 [Powrót do strony głównej](/)
