@@ -12,6 +12,9 @@ Jeśli lubisz pracować w terminalu i do tego masz zanstalowane narzędzie 'scp'
 ```bash
 scp -P 10999 /sciezka/na/twoim/dysku/plik.zip root@srv08.mikr.us:/sciezka/na/serwerze/
 ```
+## Przez panel
+
+Możesz też przeciągnąć pliki (do 100Mb) na okno panelu (mikr.us). Po kilku chwilach znajdą się one w katalogu `/drop` twojego serwera.
 
 ## Windows
 
