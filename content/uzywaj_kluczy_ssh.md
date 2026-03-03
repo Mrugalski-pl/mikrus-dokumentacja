@@ -12,9 +12,14 @@ ssh-keygen -t rsa -b 4096 -C mikrus -f ~/.ssh/mikrus
 
 Następnie skopiuj do schowka **zawartość** pliku: 
 
-```bash
+```plaintext
 ~/.ssh/mikrus.pub
 ```
+> 💡
+> Na windowsie możesz łatwo wyświetlić zawartość tego pliku używając polecenia 
+> ```
+> notepad %USERPROFILE%\.ssh\mikrus.pub 
+> ``` 
 
 Teraz musisz przystosować Mikrusa do logowania bez hasła:
 
@@ -28,15 +33,15 @@ touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 
- 2. wklej swój klucz (masz go w schowku) do pliku:~/.ssh/authorized_keys
+2. wklej swój klucz (masz go w schowku) do pliku:~/.ssh/authorized_keys
 
 > 💡 Jeśli nie wiesz jak wkleić klucz, użyj edytora dla początkujących - np. 'nano'
-
-```bash
-nano ~/.ssh/authorized_keys
-```
-
-Następne naciśnij (CTRL+V lub CTRL+SHIFT+V), po czym naciśnij CTRL+X, wpisz literę 'y' i naciśnij enter.
+>
+>```bash
+>nano ~/.ssh/authorized_keys
+>```
+> 
+> Następne naciśnij (CTRL+V lub CTRL+SHIFT+V), po czym naciśnij CTRL+X, wpisz literę 'y' i naciśnij enter.
 
 Jeśli w swoim systemie masz dostęp do polecenia 'ssh-copy-id', to wykonaj następującą instrukcję zamiast ręcznej edycji pliku:
 

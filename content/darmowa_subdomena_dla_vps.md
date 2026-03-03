@@ -33,6 +33,14 @@ Format: **serwer-numer_portu.mikrus.cloud**
 
 **Wymagania:**
 - Aplikacja **musi słuchać na adresacji IPv6** (nie IPv4!)
+- Twoja aplikacja może podawać ruch jako HTTP (plaintext) - użytkownik zawsze dostanie szyfrowaną treść (HTTPS).
+
+Przykładowo, dla serwera `adam100` z aplikacją działającą na porcie `[::]:8000` poprawnym adresem będzie `https://adam100-8000.mikrus.cloud/`. 
+Możesz to przetestować na własnym serwerze używając polecenia 
+```bash
+python3 -m http.server -b :: 8000
+```
+Ważne jest w tym wypadku (oraz w twpjej aplikacji) by słuchała ona na IPv6. Zapis `::` (lub `[::]`) oznacza bindowanie do portu na IPv6.
 
 
 ## Metoda 2: Subdomena dedykowana (wyklikiwana w panelu)

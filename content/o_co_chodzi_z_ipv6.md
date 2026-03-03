@@ -4,6 +4,14 @@ Serwery Mikrusa działają w trybie “głównie IPv6”. Nie są to serwery “
 
 **Spis treści**
 
+- [Czym jest IPv6?](#czym-jest-ipv6)
+- [Istnieje pewien problem z IPv6](#istnieje-pewien-problem-z-ipv6)
+- [Dlaczego IPv6-mostly na Mikrusie?](#dlaczego-ipv6-mostly-na-mikrusie)
+- [Jak Mikrus rozwiązuje problemy z brakiem IPv4?](#jak-mikrus-rozwiązuje-problemy-z-brakiem-ipv4)
+- [Jak to działa w praktyce? 🤔](#jak-to-działa-w-praktyce-)
+- [🌎 Aplikacje webowe](#-aplikacje-webowe)
+- [Częste komentarze i pytania](#częste-komentarze-i-pytania--)
+
 ## Czym jest IPv6?
 
 Komputery podłączone do internetu posiadają swoje adresy IP, dzięki czemu mogą być widoczne w sieci i mogą porozumiewać się z innymi komputerami. Przykładowo, możesz posiadać adres np. 1.2.3.4. Taka adresacja nazywana jest “Internet Protocol version 4” albo w skrócie IPv4.
@@ -81,7 +89,7 @@ Nie martw się, taka konfiguracja jest dziecinnie prosta (zero poleceń w termin
 
 [Poradnik na temat konfiguracji usługi Cloudflare na Mikrusie](../podpiecie_domeny_przez_cloudflare)
 
-Jeśli nie posiadasz własnej domeny, to także nie jest problemem. **Mikrus oferuje darmowe subdomeny dla każdego**. Możesz więc hostować swoją stronę pod klasyczną nazwą domenową, bez podawania dziwnych i niewygodnych numerów portów. Mało tego! Jeszcze zadbamy za Ciebie o obsługę HTTPS (nie musisz robić absolutnie niczego, aby wspierać ruch po HTTPS).
+Jeśli nie posiadasz własnej domeny, to także nie jest problemem. **Mikrus oferuje [darmowe subdomeny](/darmowa_subdomena_dla_vps) dla każdego**. Możesz więc hostować swoją stronę pod klasyczną nazwą domenową, bez podawania dziwnych i niewygodnych numerów portów. Mało tego! Jeszcze zadbamy za Ciebie o obsługę HTTPS (nie musisz robić absolutnie niczego, aby wspierać ruch po HTTPS).
 
 ### Dwa dodatkowe porty to mało!
 
