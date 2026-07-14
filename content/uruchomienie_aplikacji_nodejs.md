@@ -54,10 +54,8 @@ Jeśli zwróciło nam wersję to oznacza, że wszystko zostało zainstalowane pr
 Po udanej instalacji możemy przejść do przygotowania naszej aplikacji do uruchomienia. W tym celu, będąc w katalogu naszej aplikacji (`cd /srv/app`) musimy zainstalować pakiety wymagane przez naszą aplikację:
 
 ```bash
-npm ci
+npm install
 ```
-
-> _Alternatywnie możemy użyć także `npm install`, jednak może on zmodyfikować plik `package-lock.json` oraz zainstalować nowsze wersje zależności zgodne z `package.json`, co nie gwarantuje identycznego środowiska._
 
 Powyższe zadziała tylko wtedy, gdy w pliku `package.json` zostały wcześniej uwzględnione wszystkie wymagane zależności. Jeśli tak nie jest, konieczne będzie ręczne doinstalowanie brakujących pakietów za pomocą `npm install NAZWA` (gdzie `NAZWA` to nazwa pakietu).
 
