@@ -97,7 +97,7 @@ W tym momencie na ekranie powinny pojawić się logi startowe aplikacji.
 ## Uruchomienie aplikacji w tle (3 sposoby)
 
 Przedstawiamy trzy najpopularniejsze metody na uruchomienie aplikacji w tle. Wybierz tę, która najbardziej Ci odpowiada.
-
+> Sposób 3 jest najlepszy i najprostszy 
 ### Sposób 1: Systemowy program \`nohup\`
 
 **nohup** (no hangup) to proste narzędzie systemowe, które pozwala na ignorowanie sygnału rozłączenia sesji SSH. 
@@ -153,14 +153,14 @@ PID_FILE="pid.txt"
 # Funkcja: odczytanie głównego pliku z package.json
 get_main_file() {
     if [ ! -f "\$PACKAGE_JSON" ]; then
-        echo "❌ Brak pliku package.json w bieżącym katalogu."
+        echo "Brak pliku package.json w bieżącym katalogu."
         exit 1
     fi
 
     MAIN_FILE=\$(grep '"main"' "\$PACKAGE_JSON" | head -n 1 | sed 's/.*"main"[[:space:]]*:[[:space:]]*"//;s/".*//')
 
     if [ -z "\$MAIN_FILE" ]; then
-        echo "❌ Nie znaleziono pola \\"main\\" w package.json."
+        echo "Nie znaleziono pola \\"main\\" w package.json."
         exit 1
     fi
 
@@ -172,42 +172,42 @@ start_app() {
     MAIN=\$(get_main_file)
 
     if [ ! -f "\$MAIN" ]; then
-        echo "❌ Plik główny \\"\$MAIN\\" nie istnieje."
+        echo "Plik główny \\"\$MAIN\\" nie istnieje."
         exit 1
     fi
 
     if [ -f "\$PID_FILE" ]; then
         PID=\$(cat "\$PID_FILE")
         if ps -p "\$PID" > /dev/null; then
-            echo "ℹ️ Aplikacja już działa (PID: \$PID)."
+            echo "Aplikacja już działa (PID: \$PID)."
             exit 0
         fi
     fi
 
-    echo "▶️ Uruchamiam aplikację Node.js z pliku: \$MAIN"
+    echo "Uruchamiam aplikację Node.js z pliku: \$MAIN"
 
     nohup node "\$MAIN" > "\$LOG_FILE" 2>&1 &
     echo \$! > "\$PID_FILE"
 
-    echo "✅ Aplikacja uruchomiona."
-    echo "📄 Logi: \$LOG_FILE"
-    echo "🆔 PID zapisany w: \$PID_FILE"
+    echo "Aplikacja uruchomiona."
+    echo "Logi: \$LOG_FILE"
+    echo "PID zapisany w: \$PID_FILE"
 }
 
 # Komenda: stop
 stop_app() {
     if [ ! -f "\$PID_FILE" ]; then
-        echo "❌ Brak pliku PID. Aplikacja prawdopodobnie nie działa."
+        echo "Brak pliku PID. Aplikacja prawdopodobnie nie działa."
         exit 1
     fi
 
     PID=\$(cat "\$PID_FILE")
 
     if kill "\$PID" 2>/dev/null; then
-        echo "🛑 Zatrzymano proces o PID: \$PID"
+        echo "Zatrzymano proces o PID: \$PID"
         rm "\$PID_FILE"
     else
-        echo "❌ Nie udało się zatrzymać procesu. Być może już nie działa."
+        echo "Nie udało się zatrzymać procesu. Być może już nie działa."
         rm "\$PID_FILE"
     fi
 }
@@ -215,29 +215,29 @@ stop_app() {
 # Komenda: status
 status_app() {
     if [ ! -f "\$PID_FILE" ]; then
-        echo "ℹ️ Aplikacja nie jest uruchomiona."
+        echo "Aplikacja nie jest uruchomiona."
         exit 0
     fi
 
     PID=\$(cat "\$PID_FILE")
 
     if ps -p "\$PID" > /dev/null; then
-        echo "✅ Aplikacja działa. PID: \$PID"
+        echo "Aplikacja działa. PID: \$PID"
     else
-        echo "❌ PID istnieje, ale proces nie działa."
+        echo "PID istnieje, ale proces nie działa."
     fi
 }
 
 # Komenda: restart
 restart_app() {
-    echo "🔄 Restartuję aplikację..."
+    echo "Restartuję aplikację..."
     stop_app
     start_app
 }
 
 # Komenda: help
 show_help() {
-    echo "📘 Dostępne komendy:"
+    echo "Dostępne komendy:"
     echo "  ./service.sh start    – uruchamia aplikację"
     echo "  ./service.sh stop     – zatrzymuje aplikację"
     echo "  ./service.sh status   – pokazuje status aplikacji"
