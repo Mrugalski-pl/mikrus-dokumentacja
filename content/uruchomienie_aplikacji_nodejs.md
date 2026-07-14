@@ -309,7 +309,7 @@ case "\$1" in
         ;;
 esac
 ```
-
+>> skrypt nie działa na dystrybucji Alpine Linux, dla nowicjuszy polecamy użycie metody 1 lub 3
 ---
 
 ### Sposób 3: Narzędzie \`screen\`
