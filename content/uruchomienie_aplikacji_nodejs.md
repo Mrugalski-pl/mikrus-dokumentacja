@@ -23,11 +23,12 @@ Na początku umieścimy wszystkie pliki aplikacji (pomijając katalog `node_modu
 
 Kolejnym krokiem będzie zainstalowanie **Node.js** wraz z **NPM** na naszym serwerze. 
 
-Na dystrybucjach bazujących na Debianie (w tym Ubuntu) zainstalujemy za pomocą **apt**.
+Na dystrybucjach bazujących na Debianie (w tym Ubuntu) zainstalujemy za pomocą **nvm**, co jest sposobem [zalecnaym przez producenta](https://nodejs.org/en/download).
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash - 
-apt -y install nodejs make gcc g++
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
 ```
 
 > _Podmień numer wersji jeśli jest taka potrzeba._
@@ -35,6 +36,7 @@ apt -y install nodejs make gcc g++
 Natomiast w dystrybucjach takich jak Alpine (dotyczy serwerów **Frog**) zrobimy to za pomocą **apk**.
 
 ```bash
+sudo apk update
 sudo apk add --update nodejs npm
 ```
 
