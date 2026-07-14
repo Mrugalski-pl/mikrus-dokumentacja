@@ -97,8 +97,59 @@ W tym momencie na ekranie powinny pojawić się logi startowe aplikacji.
 ## Uruchomienie aplikacji w tle (3 sposoby)
 
 Przedstawiamy trzy najpopularniejsze metody na uruchomienie aplikacji w tle. Wybierz tę, która najbardziej Ci odpowiada.
-> Sposób 3 jest najlepszy i najprostszy 
-### Sposób 1: Systemowy program \`nohup\`
+> Sposób 1 jest najlepszy i najprostszy
+### Sposób 1: Dedykowany menedżer \`pm2\` (Zalecane)
+
+**pm2** to produkcyjny, dedykowany menedżer procesów dla Node.js. Posiada wbudowany system automatycznego restartu po awarii, monitorowania zużycia zasobów oraz łatwego zarządzania logami.
+
+#### 1. Instalacja globalna
+```bash
+npm install -g pm2
+```
+
+#### 2. Uruchomienie aplikacji
+```bash
+pm2 start index.js --name "moja-aplikacja"
+```
+> *Zastąp \`"moja-aplikacja"\` dowolną nazwą, która ułatwi Ci jej identyfikację.*
+
+#### 3. Monitorowanie i status aplikacji
+* **Lista uruchomionych procesów:**
+  ```bash
+  pm2 list
+  ```
+* **Podgląd logów na żywo:**
+  ```bash
+  pm2 logs moja-aplikacja
+  ```
+  *(Aby wyjść z podglądu logów, naciśnij **CTRL + C** – aplikacja nadal będzie działać w tle).*
+
+#### 4. Kontrola procesu
+* **Zatrzymanie aplikacji:**
+  ```bash
+  pm2 stop moja-aplikacja
+  ```
+* **Ponowne uruchomienie (restart):**
+  ```bash
+  pm2 restart moja-aplikacja
+  ```
+* **Usunięcie aplikacji z listy pm2:**
+  ```bash
+  pm2 delete moja-aplikacja
+  ```
+
+#### 5. Automatyczny start po restarcie serwera
+PM2 potrafi automatycznie uruchomić Twoje aplikacje po niespodziewanym reboocie serwera. Aby to skonfigurować, wpisz:
+```bash
+pm2 startup
+```
+*(Konsola wyświetli komendę, którą musisz skopiować i uruchomić w terminalu z uprawnieniami roota).*
+
+Po wykonaniu tej konfiguracji zapisz aktualną listę procesów:
+```bash
+pm2 save
+```
+### Sposób 2: Systemowy program \`nohup\`
 
 **nohup** (no hangup) to proste narzędzie systemowe, które pozwala na ignorowanie sygnału rozłączenia sesji SSH. 
 
@@ -261,7 +312,7 @@ esac
 
 ---
 
-### Sposób 2: Narzędzie \`screen\`
+### Sposób 3: Narzędzie \`screen\`
 
 **screen** to menedżer terminali pozwalający na tworzenie niezależnych sesji, od których można się odłączyć i do których można wrócić w dowolnym momencie.
 
@@ -313,59 +364,6 @@ screen -r moja_aplikacja
 
 ---
 
-### Sposób 3: Zaawansowany menedżer \`pm2\` (Zalecane)
-
-**pm2** to produkcyjny, dedykowany menedżer procesów dla Node.js. Posiada wbudowany system automatycznego restartu po awarii, monitorowania zużycia zasobów oraz łatwego zarządzania logami.
-
-#### 1. Instalacja globalna
-```bash
-npm install -g pm2
-```
-
-#### 2. Uruchomienie aplikacji
-```bash
-pm2 start index.js --name "moja-aplikacja"
-```
-> *Zastąp \`"moja-aplikacja"\` dowolną nazwą, która ułatwi Ci jej identyfikację.*
-
-#### 3. Monitorowanie i status aplikacji
-* **Lista uruchomionych procesów:**
-  ```bash
-  pm2 list
-  ```
-* **Podgląd logów na żywo:**
-  ```bash
-  pm2 logs moja-aplikacja
-  ```
-  *(Aby wyjść z podglądu logów, naciśnij **CTRL + C** – aplikacja nadal będzie działać w tle).*
-
-#### 4. Kontrola procesu
-* **Zatrzymanie aplikacji:**
-  ```bash
-  pm2 stop moja-aplikacja
-  ```
-* **Ponowne uruchomienie (restart):**
-  ```bash
-  pm2 restart moja-aplikacja
-  ```
-* **Usunięcie aplikacji z listy pm2:**
-  ```bash
-  pm2 delete moja-aplikacja
-  ```
-
-#### 5. Automatyczny start po restarcie serwera
-PM2 potrafi automatycznie uruchomić Twoje aplikacje po niespodziewanym reboocie serwera. Aby to skonfigurować, wpisz:
-```bash
-pm2 startup
-```
-*(Konsola wyświetli komendę, którą musisz skopiować i uruchomić w terminalu z uprawnieniami roota).*
-
-Po wykonaniu tej konfiguracji zapisz aktualną listę procesów:
-```bash
-pm2 save
-```
-
----
 
 ## Podsumowanie
 
