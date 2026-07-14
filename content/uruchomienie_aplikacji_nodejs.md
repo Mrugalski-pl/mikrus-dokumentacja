@@ -1,13 +1,17 @@
 # Uruchomienie aplikacji Node.js
 
-> 💡 Autorem poradnika jest **[Ozelot](https://ozelot.fyi)**.
+> 💡 **Autorem poradnika jest [Ozelot](https://ozelot.fyi)**
+> *(Sformatowane i zmodyfikowane przez [MilexinTeam](https://github.com/MilexinTeam) / Shyphire na Discordzie).*
 
-W tym poradniku pokażę ci jak uruchomić na serwerze swoją aplikację napisaną w technologii **Node.js**. Zajmiemy się tutaj bardzo podstawowym przykładem prostej aplikacji takiej jak np. boty Discord, process workery itp.
+W tym poradniku dowiesz się, jak uruchomić na serwerze swoją aplikację napisaną w środowisku **Node.js**. Skupimy się na podstawowym przykładzie prostej aplikacji działającej stale w tle – takiej jak bot Discord czy worker przetwarzający zadania w tle.
 
-## Przykładowa aplikacja
+---
 
-Aplikacja którą chcemy uruchomić może być zbudowana w mniej-więcej taki sposób. Oto przykład naszej aplikacji:
-```
+## Przykładowa struktura aplikacji
+
+Aplikacja, którą chcemy uruchomić, zazwyczaj posiada strukturę zbliżoną do poniższej:
+
+```text
 .
 ├── node_modules
 ├── index.js
@@ -15,232 +19,356 @@ Aplikacja którą chcemy uruchomić może być zbudowana w mniej-więcej taki sp
 └── package-lock.json
 ```
 
+---
+
 ## Umieszczenie plików aplikacji na serwerze
 
-Na początku umieścimy wszystkie pliki aplikacji (pomijając katalog `node_modules` i plik `package-lock.json`) na serwerze [na przykład w ten sposób](/jak_wysylac_pliki_na_mikrusa), w wybranym katalogu. Na potrzeby poradnika użyjemy katalogu `/srv/app`.
+Na początku musisz umieścić pliki aplikacji w wybranym katalogu na serwerze (np. \`/srv/app\`). Możesz to zrobić, korzystając z [naszego poradnika o wysyłaniu plików na serwer](/jak_wysylac_pliki_na_mikrusa).
+
+> ⚠️ **Ważne:** Przesyłając pliki, **pomiń** katalog \`node_modules\`. Plik \`package-lock.json\` również możesz pominąć, jeśli nie korzystasz z npm ci (jeśli nie wiesz, co to oznacza – po prostu go nie przenoś). Zostaną one wygenerowane bezpośrednio na serwerze.
+
+---
 
 ## Instalacja Node.js
 
-Kolejnym krokiem będzie zainstalowanie **Node.js** wraz z **NPM** na naszym serwerze. 
+Kolejnym krokiem jest instalacja środowiska **Node.js** oraz wybranego menedżera pakietów (**NPM**, **YARN** lub **PNPM**). W tym poradniku będziemy korzystać z najpopularniejszego rozwiązania – **NPM**.
 
-Na dystrybucjach bazujących na Debianie (w tym Ubuntu) zainstalujemy za pomocą **apt**.
+### Systemy bazujące na Debianie (w tym Ubuntu)
+Instalację przeprowadzamy za pomocą menedżera **apt**:
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash - 
-apt -y install nodejs make gcc g++
+sudo apt update && sudo apt install -y nodejs make gcc g++
 ```
+> *W razie potrzeby podmień wersję \`22.x\` na taką, której wymaga Twoja aplikacja.*
 
-> _Podmień numer wersji jeśli jest taka potrzeba._
-
-Natomiast w dystrybucjach takich jak Alpine (dotyczy serwerów **Frog**) zrobimy to za pomocą **apk**.
+### Systemy bazujące na Alpine Linux (np. serwery Frog)
+Instalację przeprowadzamy za pomocą menedżera **apk**:
 
 ```bash
 sudo apk add --update nodejs npm
 ```
 
-> _W dalszej części poradnika przy wyszczególnianiu poszczególnych opcji dla wyżej wymienionych grup dystrybucji będę posługiwał się nazwami Debian i Alpine._
-
-Następnie możemy zweryfikować poprawność instalacji w ten sposób:
+### Weryfikacja instalacji
+Aby upewnić się, że środowisko zostało zainstalowane poprawnie, sprawdź wersje zainstalowanych narzędzi:
 
 ```bash
 node -v
 npm -v
 ```
+Jeśli w konsoli wyświetliły się numery wersji, wszystko przebiegło pomyślnie!
 
-Jeśli zwróciło nam wersję to oznacza, że wszystko zostało zainstalowane prawidłowo.
+---
 
-## Instalacja zależności
+## Instalacja zależności aplikacji
 
-Po udanej instalacji możemy przejść do przygotowania naszej aplikacji do uruchomienia. W tym celu, będąc w katalogu naszej aplikacji (`cd /srv/app`) musimy zainstalować pakiety wymagane przez naszą aplikację:
+Po udanej instalacji środowiska przechodzimy do przygotowania samej aplikacji. Wejdź do katalogu ze swoją aplikacją i zainstaluj wymagane pakiety:
 
 ```bash
-npm ci
+cd /srv/app
+npm install
+```
+> *Alternatywnie możesz użyć polecenia \`npm ci\` (wymaga ono jednak obecności pliku \`package-lock.json\` na serwerze).*
+
+Powyższe polecenie zadziała poprawnie pod warunkiem, że w pliku \`package.json\` zostały wcześniej zdefiniowane wszystkie wymagane zależności. Jeśli tak nie jest, zainstaluj brakujące pakiety ręcznie za pomocą:
+
+```bash
+npm install NAZWA_PAKIETU
 ```
 
-> _Alternatywnie możemy użyć także `npm install`, jednak może on zmodyfikować plik `package-lock.json` oraz zainstalować nowsze wersje zależności zgodne z `package.json`, co nie gwarantuje identycznego środowiska._
-
-Powyższe zadziała tylko wtedy, gdy w pliku `package.json` zostały wcześniej uwzględnione wszystkie wymagane zależności. Jeśli tak nie jest, konieczne będzie ręczne doinstalowanie brakujących pakietów za pomocą `npm install NAZWA` (gdzie `NAZWA` to nazwa pakietu).
-
-Jeśli wszystkie pakiety zostały zainstalowane prawidłowo możemy przejść dalej.
+---
 
 ## Testowe uruchomienie aplikacji
 
-Pozostajemy w katalogu naszej aplikacji. Nadszedł czas na jej uruchomienie. W tym celu używamy polecenia `node PLIK_URUCHAMIAJACY.js`, na naszym przykładzie będzie to:
+Będąc cały czas w katalogu aplikacji, uruchom ją testowo, aby upewnić się, że nie zawiera błędów:
 
 ```bash
 node index.js
 ```
+> *Jeśli Twój główny plik uruchomieniowy nazywa się inaczej (np. \`app.js\` lub \`main.js\`), podmień nazwę.*
 
-> _`index.js` to plik uruchamiający aplikację, jeśli ma inną nazwę, podmień ją._
+W tym momencie na ekranie powinny pojawić się logi startowe aplikacji. 
+* Aby wyłączyć aplikację, użyj kombinacji klawiszy **CTRL + C**.
 
-Aplikacja powinna zostać uruchomiona, a my powinniśmy zobaczyć jej logi.
+> ⚠️ **Uwaga:** Uruchomienie aplikacji w ten sposób jest dobre tylko do testów. Po zamknięciu sesji SSH (zamknięciu terminala) Twoja aplikacja natychmiast przestanie działać. Aby działała nieprzerwanie, skorzystaj z jednej z poniższych metod.
 
-> _Aby w tym momencie zabić aplikację używamy kombinacji klawiszy **Ctrl + C**._
+---
 
-Aplikację można w ten sposób uruchomić testowo, jednak jej działanie zostanie przerwane po zamknięciu sesji SSH. W celu uruchomienia aplikacji w sposób trwały, odpowiedni dla środowiska produkcyjnego, należy wykonać dodatkowe kroki opisane w kolejnym punkcie.
+## Uruchomienie aplikacji w tle (3 sposoby)
 
-## Uruchomienie aplikacji w tle
+Przedstawiamy trzy najpopularniejsze metody na uruchomienie aplikacji w tle. Wybierz tę, która najbardziej Ci odpowiada.
 
-W tym poradniku przedstawię **2 narzędzia** pozwalające na osiągnięcie tego. Dla ułatwienia nadal pozostajemy w katalogu aplikacji.
+### Sposób 1: Systemowy program \`nohup\`
 
-### Sposób 1 - screen
+**nohup** (no hangup) to proste narzędzie systemowe, które pozwala na ignorowanie sygnału rozłączenia sesji SSH. 
 
-**screen** to prosty menedżer sesji terminalowych, który pozwala uruchomić proces w osobnej sesji, odłączyć ją i wrócić do niej później.
-
-#### Instalacja screen
-
-Na nowszych wersjach dystrybucji narzędzie **screen** może nie być domyślnie zainstalowane (sprawdzisz to wpisując `screen`). Jeśli nie jest - należy je zainstalować:
-
-Dla Debiana:
+#### 1. Instalacja
+W większości dystrybucji (np. Debian/Ubuntu) narzędzie to jest zainstalowane fabrycznie. Na systemie Alpine Linux musisz doinstalować pakiet \`coreutils\`:
 
 ```bash
-apt install screen
+sudo apk add coreutils
 ```
 
-Dla Alpine:
+#### 2. Podstawowe uruchomienie
+> ⚠️ **Uwaga:** Ta podstawowa komenda uruchamia proces w tle, ale nie zapisuje jego identyfikatora PID. Może to utrudnić jego późniejsze wyłączenie.
 
 ```bash
-sudo apk add screen
+nohup node index.js &
 ```
 
-#### Utworzenie nowej sesję screen
+#### 3. Przydatne parametry i opcje
+
+* **Zapisywanie logów do pliku (czyszczenie pliku przy każdym starcie):**
+  ```bash
+  nohup node index.js > ścieżka/do/pliku.log 2>&1 &
+  ```
+* **Zapisywanie logów do pliku (dopisywanie nowych logów na końcu):**
+  ```bash
+  nohup node index.js >> ścieżka/do/pliku.log 2>&1 &
+  ```
+* **Zapisanie PID (identyfikatora procesu) do pliku:**
+  Umożliwi to łatwe kontrolowanie i wyłączenie aplikacji w przyszłości.
+  ```bash
+  echo \$! > pid.txt
+  ```
+* **Zatrzymanie aplikacji:**
+  ```bash
+  kill \$(cat pid.txt)
+  ```
+* **Sprawdzenie statusu aplikacji:**
+  ```bash
+  ps -p \$(cat pid.txt)
+  ```
+
+#### 4. Gotowy skrypt zarządzający (service.sh)
+Możesz utworzyć w folderze aplikacji plik o nazwie \`service.sh\`, wkleić do niego poniższą zawartość i nadać mu uprawnienia do uruchamiania (\`chmod +x service.sh\`). Pozwoli on na wygodne zarządzanie aplikacją za pomocą \`nohup\`.
 
 ```bash
-screen -S NAZWA
+#!/usr/bin/env bash
+
+PACKAGE_JSON="package.json"
+LOG_FILE="logi.log"
+PID_FILE="pid.txt"
+
+# Funkcja: odczytanie głównego pliku z package.json
+get_main_file() {
+    if [ ! -f "\$PACKAGE_JSON" ]; then
+        echo "❌ Brak pliku package.json w bieżącym katalogu."
+        exit 1
+    fi
+
+    MAIN_FILE=\$(grep '"main"' "\$PACKAGE_JSON" | head -n 1 | sed 's/.*"main"[[:space:]]*:[[:space:]]*"//;s/".*//')
+
+    if [ -z "\$MAIN_FILE" ]; then
+        echo "❌ Nie znaleziono pola \\"main\\" w package.json."
+        exit 1
+    fi
+
+    echo "\$MAIN_FILE"
+}
+
+# Komenda: start
+start_app() {
+    MAIN=\$(get_main_file)
+
+    if [ ! -f "\$MAIN" ]; then
+        echo "❌ Plik główny \\"\$MAIN\\" nie istnieje."
+        exit 1
+    fi
+
+    if [ -f "\$PID_FILE" ]; then
+        PID=\$(cat "\$PID_FILE")
+        if ps -p "\$PID" > /dev/null; then
+            echo "ℹ️ Aplikacja już działa (PID: \$PID)."
+            exit 0
+        fi
+    fi
+
+    echo "▶️ Uruchamiam aplikację Node.js z pliku: \$MAIN"
+
+    nohup node "\$MAIN" > "\$LOG_FILE" 2>&1 &
+    echo \$! > "\$PID_FILE"
+
+    echo "✅ Aplikacja uruchomiona."
+    echo "📄 Logi: \$LOG_FILE"
+    echo "🆔 PID zapisany w: \$PID_FILE"
+}
+
+# Komenda: stop
+stop_app() {
+    if [ ! -f "\$PID_FILE" ]; then
+        echo "❌ Brak pliku PID. Aplikacja prawdopodobnie nie działa."
+        exit 1
+    fi
+
+    PID=\$(cat "\$PID_FILE")
+
+    if kill "\$PID" 2>/dev/null; then
+        echo "🛑 Zatrzymano proces o PID: \$PID"
+        rm "\$PID_FILE"
+    else
+        echo "❌ Nie udało się zatrzymać procesu. Być może już nie działa."
+        rm "\$PID_FILE"
+    fi
+}
+
+# Komenda: status
+status_app() {
+    if [ ! -f "\$PID_FILE" ]; then
+        echo "ℹ️ Aplikacja nie jest uruchomiona."
+        exit 0
+    fi
+
+    PID=\$(cat "\$PID_FILE")
+
+    if ps -p "\$PID" > /dev/null; then
+        echo "✅ Aplikacja działa. PID: \$PID"
+    else
+        echo "❌ PID istnieje, ale proces nie działa."
+    fi
+}
+
+# Komenda: restart
+restart_app() {
+    echo "🔄 Restartuję aplikację..."
+    stop_app
+    start_app
+}
+
+# Komenda: help
+show_help() {
+    echo "📘 Dostępne komendy:"
+    echo "  ./service.sh start    – uruchamia aplikację"
+    echo "  ./service.sh stop     – zatrzymuje aplikację"
+    echo "  ./service.sh status   – pokazuje status aplikacji"
+    echo "  ./service.sh restart  – restartuje aplikację"
+    echo "  ./service.sh help     – pokazuje tę pomoc"
+}
+
+# Router komend
+case "\$1" in
+    start) start_app ;;
+    stop) stop_app ;;
+    status) status_app ;;
+    restart) restart_app ;;
+    help|"") show_help ;;
+    *)
+        echo "❌ Nieznana komenda: \$1"
+        show_help
+        ;;
+esac
 ```
 
-> _W miejscu `NAZWA` wprowadź dowolną nazwę kojarzoną z twoją aplikacją._
+---
 
-Zostaniemy przeniesieni do nowej sesji. Tam uruchamiamy aplikację, podobnie jak wcześniej:
+### Sposób 2: Narzędzie \`screen\`
 
+**screen** to menedżer terminali pozwalający na tworzenie niezależnych sesji, od których można się odłączyć i do których można wrócić w dowolnym momencie.
+
+#### 1. Instalacja
+Jeśli polecenie \`screen\` nie jest dostępne w Twoim systemie, zainstaluj je:
+
+* **Debian / Ubuntu:**
+  ```bash
+  sudo apt install screen
+  ```
+* **Alpine Linux:**
+  ```bash
+  sudo apk add screen
+  ```
+
+#### 2. Tworzenie nowej sesji
+Aby utworzyć nową sesję o wybranej nazwie, wpisz:
+```bash
+screen -S moja_aplikacja
+```
+Zostaniesz przeniesiony do nowego, pustego okna terminala. Uruchom tam swoją aplikację:
 ```bash
 node index.js
 ```
 
-> _`index.js` to plik uruchamiający aplikację, jeśli ma inną nazwę, podmień ją._
+#### 3. Odłączanie się od sesji (zostawienie w tle)
+Aby wyjść z sesji i pozostawić aplikację działającą w tle, naciśnij na klawiaturze sekwencję:
+* **CTRL + A**, a następnie klawisz **D** (od *detach*).
 
-Aby opuścić sesję bez zabijania procesu, możemy użyć **CTRL + A + D**.
-
-Natomiast aby zatrzymać aplikację (np. aby ją zrestartować) możemy wewnątrz sesji użyć **CTRL + C**.
-
-#### Powrót do istniejącej sesji
-
-Jeśli chcemy powrócić do sesji, np. aby przejrzeć logi aplikacji, możemy to zrobić w następujący sposób:
-
+#### 4. Powrót do sesji (podgląd logów i kontrola)
+Jeśli chcesz wrócić do działającej aplikacji, wpisz:
 ```bash
-screen -r NAZWA
+screen -r moja_aplikacja
 ```
 
-> _W miejscu `NAZWA` wprowadź wcześniej ustawioną nazwę twojej sesji._
+#### 5. Zarządzanie sesjami screen
+* **Lista aktywnych sesji:**
+  ```bash
+  screen -ls
+  ```
+* **Całkowite wyłączenie danej sesji (i zatrzymanie aplikacji):**
+  ```bash
+  screen -S moja_aplikacja -X quit
+  ```
+* **Zabicie wszystkich sesji screen na serwerze:**
+  ```bash
+  pkill screen
+  ```
 
-#### Wyświetlenie listy aktywnych sesji
+---
 
-Jeśli chcemy sprawdzić listę aktywnych sesji, wraz z nazwami, możemy zrobić to w następujący sposób:
+### Sposób 3: Zaawansowany menedżer \`pm2\` (Zalecane)
 
-```bash
-screen -ls
-```
+**pm2** to produkcyjny, dedykowany menedżer procesów dla Node.js. Posiada wbudowany system automatycznego restartu po awarii, monitorowania zużycia zasobów oraz łatwego zarządzania logami.
 
-#### Zabicie sesji
-
-Jeśli chcemy zabić sesję (całkowicie usunąć ją), możemy zrobić to w następujący sposób:
-
-```bash
-screen -S NAZWA -X quit
-```
-
-> _W miejscu `NAZWA` wprowadź wcześniej ustawioną nazwę twojej sesji._
-
-Alternatywnie, możemy także zabić wszystkie sesje:
-```bash
-pkill screen
-```
-
-### Sposób 2 - pm2
-
-**pm2** to zaawansowany menedżer procesów dedykowany aplikacjom Node.js. Pozwala na automatyczny restart aplikacji, monitorowanie jej działania oraz logowanie.
-
-#### Instalacja pm2
-
-**pm2** instalujemy w następujący sposób:
-
+#### 1. Instalacja globalna
 ```bash
 npm install -g pm2
 ```
 
-#### Uruchomienie aplikacji
-
-Możemy uruchomić aplikację za pomocą pm2 w następujący sposób:
-
+#### 2. Uruchomienie aplikacji
 ```bash
-pm2 start index.js --name NAZWA
+pm2 start index.js --name "moja-aplikacja"
 ```
+> *Zastąp \`"moja-aplikacja"\` dowolną nazwą, która ułatwi Ci jej identyfikację.*
 
-> _`index.js` to plik uruchamiający aplikację, jeśli ma inną nazwę, podmień ją. _W miejscu `NAZWA` wprowadź dowolną nazwę kojarzoną z twoją aplikacją._
+#### 3. Monitorowanie i status aplikacji
+* **Lista uruchomionych procesów:**
+  ```bash
+  pm2 list
+  ```
+* **Podgląd logów na żywo:**
+  ```bash
+  pm2 logs moja-aplikacja
+  ```
+  *(Aby wyjść z podglądu logów, naciśnij **CTRL + C** – aplikacja nadal będzie działać w tle).*
 
-#### Lista uruchomionych aplikacji
+#### 4. Kontrola procesu
+* **Zatrzymanie aplikacji:**
+  ```bash
+  pm2 stop moja-aplikacja
+  ```
+* **Ponowne uruchomienie (restart):**
+  ```bash
+  pm2 restart moja-aplikacja
+  ```
+* **Usunięcie aplikacji z listy pm2:**
+  ```bash
+  pm2 delete moja-aplikacja
+  ```
 
-Możemy wyświetlić listę uruchomionych za pomocą pm2 aplikacji
-
-```bash
-pm2 list
-```
-
-Aby opuścić podgląd logów używamy **CTRL + C**.
-
-### Podgląd logów aplikacji
-
-Aby wyświetlić podgląd logów aplikacji, wykonujemy:
-
-```bash
-pm2 logs NAZWA
-```
-
-> _W miejscu `NAZWA` wprowadź wcześniej ustawioną nazwę kojarzoną z twoją aplikacją._
-
-#### Restart, zatrzymywanie, ponowne uruchomienie aplikacji
-
-Aplikację możemy zrestartować za pomocą polecenia:
-
-```bash
-pm2 restart NAZWA
-```
-
-Możemy ją także łatwo zatrzymać:
-
-```bash
-pm2 stop NAZWA
-```
-
-A także ponownie uruchomić:
-
-```bash
-pm2 start NAZWA
-```
-
-> _W miejscu `NAZWA` wprowadź wcześniej ustawioną nazwę kojarzoną z twoją aplikacją._
-
-### Usunięcie aplikacji
-
-Aby usunąć aplikację z pm2 możemy zrobić to następującym poleceniem:
-
-```bash
-pm2 delete NAZWA
-```
-
-> _W miejscu `NAZWA` wprowadź wcześniej ustawioną nazwę kojarzoną z twoją aplikacją._
-
-### Automatyczne uruchomienie aplikacji po reboocie systemu
-
-pm2 pozwala na **automatyczne uruchomienie aplikacji po restarcie całego systemu**. W tym celu, po skonfigurowaniu i uruchomieniu aplikacji należy wykonać:
-
+#### 5. Automatyczny start po restarcie serwera
+PM2 potrafi automatycznie uruchomić Twoje aplikacje po niespodziewanym reboocie serwera. Aby to skonfigurować, wpisz:
 ```bash
 pm2 startup
+```
+*(Konsola wyświetli komendę, którą musisz skopiować i uruchomić w terminalu z uprawnieniami roota).*
+
+Po wykonaniu tej konfiguracji zapisz aktualną listę procesów:
+```bash
 pm2 save
 ```
 
+---
+
 ## Podsumowanie
 
-Nasza aplikacja została uruchomiona na serwerze i działa w tle — niezależnie od aktywności terminala czy sesji SSH. Dzięki takim narzędziom jak screen lub pm2 możemy w prosty sposób zarządzać jej działaniem, monitorować logi, restartować ją, a nawet zapewnić jej automatyczne uruchomienie po restarcie serwera.
+Twoja aplikacja została pomyślnie uruchomiona na serwerze i działa bezpiecznie w tle! Bez względu na to, czy zamkniesz terminal, czy odłączysz się od sieci, proces będzie realizował swoje zadania. Korzystając z narzędzi takich jak **screen** czy **pm2**, zyskałeś pełną kontrolę nad logami, stabilnością i cyklem życia swojej aplikacji.
 
 [Powrót do strony głównej](/)
