@@ -1,28 +1,28 @@
-# Dokumentacja projektu Mikrus
-To repozytorium zawiera pliki źródłowe dla wiki znajdującej się pod adresem [wiki.mikr.us](https://wiki.mikr.us/)
+## Usage
 
-# Chcę coś dodać od siebie!
-Wspaniale! Pliki wiki (w formacie Markdown) znajdują się w katalogu `/content`
+```bash
+$ npm install # or pnpm install or yarn install
+```
 
-Aby pobrać i zbudować dokumentację użyj
-```bash
-git clone git@github.com:unkn0w/mikrus-dokumentacja.git --recursive
-```
-lub po http
-```bash
-git clone https://github.com/unkn0w/mikrus-dokumentacja.git --recursive
-```
-następnie przejdź do katalogu
-```bash
-cd mikrus-dokumentacja
-```
-zbuduj za pomocą, wymaga [hugo](https://gohugo.io/installation/) w wersji `0.142.0` (starsze mogą nie działać, a bardzo nowe nie działają na pewno)
-```bash
-hugo
-```
-gotowe pliki są w `/public`
+### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
 
-Jeżeli chcesz widzieć zmiany na żywo użyj
-```bash
-hugo server
-```
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm run dev`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+### `npm run build`
+
+Builds the app for production to the `dist` folder.<br>
+It correctly bundles Solid in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
+
+## Deployment
+
+Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
