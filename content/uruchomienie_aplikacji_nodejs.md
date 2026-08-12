@@ -23,11 +23,12 @@ Na początku umieścimy wszystkie pliki aplikacji (pomijając katalog `node_modu
 
 Kolejnym krokiem będzie zainstalowanie **Node.js** wraz z **NPM** na naszym serwerze. 
 
-Na dystrybucjach bazujących na Debianie (w tym Ubuntu) zainstalujemy za pomocą **apt**.
+Na dystrybucjach bazujących na Debianie (w tym Ubuntu) zainstalujemy za pomocą **nvm**, co jest sposobem [zalecnaym przez producenta](https://nodejs.org/en/download).
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash - 
-apt -y install nodejs make gcc g++
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
 ```
 
 > _Podmień numer wersji jeśli jest taka potrzeba._
@@ -35,6 +36,7 @@ apt -y install nodejs make gcc g++
 Natomiast w dystrybucjach takich jak Alpine (dotyczy serwerów **Frog**) zrobimy to za pomocą **apk**.
 
 ```bash
+sudo apk update
 sudo apk add --update nodejs npm
 ```
 
@@ -54,10 +56,8 @@ Jeśli zwróciło nam wersję to oznacza, że wszystko zostało zainstalowane pr
 Po udanej instalacji możemy przejść do przygotowania naszej aplikacji do uruchomienia. W tym celu, będąc w katalogu naszej aplikacji (`cd /srv/app`) musimy zainstalować pakiety wymagane przez naszą aplikację:
 
 ```bash
-npm ci
+npm install
 ```
-
-> _Alternatywnie możemy użyć także `npm install`, jednak może on zmodyfikować plik `package-lock.json` oraz zainstalować nowsze wersje zależności zgodne z `package.json`, co nie gwarantuje identycznego środowiska._
 
 Powyższe zadziała tylko wtedy, gdy w pliku `package.json` zostały wcześniej uwzględnione wszystkie wymagane zależności. Jeśli tak nie jest, konieczne będzie ręczne doinstalowanie brakujących pakietów za pomocą `npm install NAZWA` (gdzie `NAZWA` to nazwa pakietu).
 
