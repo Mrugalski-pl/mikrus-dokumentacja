@@ -32,6 +32,14 @@
     
     Tak. Pamiętaj jednak, że na początku musisz zainstalować Dockera (z repozytorium!) i uruchomić jego daemona.
     
+- **Czy postawię na FROG-u N8N, Claude Code, Codexa lub innego agenta AI?**
+    
+    Nie. Serwery FROG nie mają szans udźwignąć rozwiązań typu N8N, Claude Code, Codex, Hermes Agent itp. - 256MB RAM to zdecydowanie za mało. Sam N8N wymaga minimum 1GB RAM, więc do takich zastosowań potrzebujesz [płatnego Mikrusa](https://mikr.us) (minimum w wersji 2.1).
+
+- **Czy mogę korzystać z FROG-a, jeśli nie mieszkam w Polsce?**
+    
+    Usługa przeznaczona jest dla użytkowników z Polski. Ruch sieciowy do i z niektórych krajów (m.in. azjatyckich) jest na Frogu zablokowany, dlatego osoby z Azji prosimy o nieaktywowanie konta.
+
 - **Czy mogę postawić na FROG-u bota Discorda?**
     
     Tak! **O ile nie jest to bot muzyczny**, bo one podpadają pod usługi dźwiękowe/streamingowe, które są u nas zabronione. Boty tekstowe są w pełni OK.

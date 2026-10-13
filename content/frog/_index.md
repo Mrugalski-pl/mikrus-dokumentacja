@@ -4,20 +4,41 @@ layout = "single"
 
 # Mikrus Frog
 
-Serwery ‘Frog’ to VPS-y z darmowej oferty Mikrusa (<https://mikr.us/>).
+Serwery ‘Frog’ to VPS-y z darmowej oferty Mikrusa (<https://frog.mikr.us/>). To małe (malutkie!) serwery przeznaczone do nauki administracji serwerami, hostingu prostych aplikacji (np. checki, crony) i hostowania niewielkich stron WWW.
 
-Możesz posiadać **JEDEN** taki serwer.
+Usługa przeznaczona jest dla użytkowników z **Polski** 🇵🇱.
+
+Możesz posiadać **JEDEN** taki serwer. Potrzebujesz więcej? Od tego jest [oferta płatna](https://mikr.us/).
 
 > Zobacz też na [częste pytania i odpowiedzi](faq).
 
-Do aktywacji serwera konieczne jest wykonanie “opłaty aktywacyjnej”. Nie jest to opłata abonamentowa (bo nie posiadasz żadnego abonamentu), a jedynie przelew weryfikacyjny.
+## Aktywacja serwera
 
-Przelew taki wynosi **5zł**, ale wpłatę możesz dobrowolnie powiększyć, jeśli chcesz się dorzucić do utrzymania serwera.
+Serwer aktywujesz na stronie <https://frog.mikr.us/>.
 
+Do aktywacji serwera konieczne jest wykonanie “opłaty aktywacyjnej”. Nie jest to opłata abonamentowa (bo nie posiadasz żadnego abonamentu), a jedynie **jednorazowy** przelew weryfikujący Twoją tożsamość.
 
-> 🆘 Reinstalacja lub odzyskanie hasła? Sprawdź nasz portal: <https://ssp.mikr.us/>
+Przelew może opiewać na dowolną kwotę, ale **minimum 5zł**. Wpłatę możesz dobrowolnie powiększyć, jeśli chcesz się dorzucić do utrzymania serwera.
 
-> 👉🏻 Loginem do portalu jest 3 (lub 4) cyfrowy  ID, czyli jak Twój Frog ma w nazwie f1**853**, to Twoim ID jest 853.
+> 🛑 Serwery, na które nikt nie logował się przez **3 miesiące**, są **usuwane**. Loguj się na swojego Froga co jakiś czas!
+
+Korzystając z serwera, akceptujesz [regulamin i politykę prywatności usługi FROG](https://sklep.mikr.us/page/regulamin-frog).
+
+## Frog to nie Mikrus
+
+Projekt FROG **nie jest połączony z infrastrukturą Mikrusa** i nie korzysta z żadnych znanych na Mikrusie usprawnień. Oznacza to, że na Frogu nie znajdziesz m.in. [Cytrusa](../cytrus), [Amfetaminy](../amfetamina), [Outsidera](../outsider), [Strychu](../strych_backupy) ani [darmowych subdomen z panelu](../darmowa_subdomena_dla_vps). Część artykułów z tej dokumentacji nie będzie więc miała do Froga zastosowania.
+
+Serwery FROG **nie mają dostępu do panelu administracyjnego Mikrusa**. Posiadają własny portal **[SSP](https://ssp.mikr.us/)**, w którym możesz:
+
+- przeinstalować system
+- zresetować hasło do konta systemowego `frog`
+- zrestartować serwer
+
+Wszystko inne robisz samodzielnie, przez SSH.
+
+> 👉🏻 Loginem do portalu jest **adres e-mail przypisany do konta Froga** (ten, na który dostałeś mail powitalny).
+
+> 🔥 Serwery FROG nie mają szans udźwignąć rozwiązań typu N8N, Claude Code, Codex, Hermes Agent itp. Jeśli chcesz z nich korzystać, rozejrzyj się za [płatnym Mikrusem](https://mikr.us/) (N8N wymaga minimum 1GB RAM).
 
 
 ## Parametry serwera
@@ -56,7 +77,7 @@ Ze względu na to, że jest to oferta bezpłatna, wsparcie techniczne dla tych s
     - zainstalowanie własnego kernela + ładowanie własnych modułów
     - montowanie urządzeń, w tym zasobów NFS
     - dodanie własnej pamięci SWAP
-- Ruch sieciowy ‘do’ oraz ‘z’ pewnych krajów (m.in. azjatyckich) został wycięty na Frogu (względy bezpieczeństwa).
+- Ruch sieciowy ‘do’ oraz ‘z’ pewnych krajów (m.in. azjatyckich) został wycięty na Frogu (względy bezpieczeństwa). Z tego powodu prosimy osoby z Azji o nieaktywowanie konta.
 
 
 
