@@ -43,7 +43,7 @@ Przygotowane wcześniej klucze zapisz w odpowiednie miejsca:
 
 | mikrus | local server | remote machine |
 | --- | --- | --- |
-| Klucz `mikrus.pub` wgraj przez https://mikr.us/panel w sekcji Klucze SSH | Klucz mikrus (prywatny) zapisz w `~/.ssh`, a klucz `local_server.pub` dodaj do `~/.ssh/authorized_keys` | Klucz `local_server` (prywatny) zapisz w `~/.ssh` |
+| Klucz `mikrus.pub` wgraj przez https://mikr.us/panel w sekcji Klucz SSH | Klucz mikrus (prywatny) zapisz w `~/.ssh`, a klucz `local_server.pub` dodaj do `~/.ssh/authorized_keys` | Klucz `local_server` (prywatny) zapisz w `~/.ssh` |
 
 # Zmiany na Mikrusie
 
@@ -99,11 +99,7 @@ ServerAliveInterval 30
 ServerAliveCountMax 3
 ```
 
-Po tej zmianie zrestartuj serwer SSH:
-
-```bash
-sudo systemctl restart sshd
-```
+To konfiguracja klienta, więc nie musisz niczego restartować - zmiany zadziałają przy kolejnym połączeniu.
 
 ## Automatyczne utrzymywanie połączenia
 

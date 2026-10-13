@@ -1,6 +1,6 @@
 # Outsider
 
-Outsider to zewnętrzny serwer z zainstalowanym DirectAdminem, do którego masz dostęp od Mikrusa 2.0 wzwyż.
+Outsider to zewnętrzny serwer z zainstalowanym DirectAdminem, do którego masz dostęp na wszystkich płatnych Mikrusach poza wersją 1.0 (od Mikrusa 2.1 wzwyż).
 
 Dlaczego taka usługa powstała?
 
@@ -16,7 +16,7 @@ Link: [https://outsider.mikr.us:2222](https://outsider.mikr.us:2222/)
 
 Loginem jest nazwa Twojego serwera np. x921 / karol123
 
-Hasło otrzymasz przy aktywacji usługi w panelu Mikrusa (będzie w logach operacji).
+Usługę aktywujesz w panelu Mikrusa (menu **Mikrus Services** → **[Outsider](https://mikr.us/panel/?a=outsider)**). Hasło otrzymasz przy aktywacji usługi (będzie w logach operacji).
 
 ## Jak dodać nową domenę do Outsidera (WWW+poczta)?
 

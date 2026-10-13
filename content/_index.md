@@ -10,6 +10,7 @@ Poniżej znajdziesz wszystko, co jest Ci potrzebne do rozpoczęcia przygody z se
 - [Darmowa subdomena dla VPS](darmowa_subdomena_dla_vps)
 - [Używaj kluczy SSH!](uzywaj_kluczy_ssh)
 - [Jak wysyłać pliki na Mikrusa?](jak_wysylac_pliki_na_mikrusa)
+- [Dostępne dystrybucje Linuxa](dystrybucje_linuxa)
 
 ### Mikrusowe technologie
 
@@ -27,8 +28,8 @@ Poniżej znajdziesz wszystko, co jest Ci potrzebne do rozpoczęcia przygody z se
 - [Współdzielona domena (wykr.es)](wspoldzielona_domena)
 - [Polecanie serwera innym](polecanie_serwera_innym)
 - [Pusher](pusher) - automat do wysyłki maili
-- [NextCloud](nextcloud)
-- [Wireguard](wireguard)
+- [NextCloud](nextcloud) - współdzielony dysk w chmurze
+- [Wireguard](wireguard) - współdzielony VPN i poradnik stawiania własnego
 - [Dashboard](dashboard) - akcje serwera wywoływane jednym kliknięciem
 
 ### Konfiguracja usług

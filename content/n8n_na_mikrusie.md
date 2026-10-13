@@ -12,41 +12,41 @@ N8N na Mikrusie dostępna jest w dwóch wersjach. Pierwsza domyślna korzysta z 
 
 ### Instalacja N8N
 
+> 🛑 N8N wymaga minimum **1GB pamięci RAM**, więc nie uruchomisz go na Mikrusie 1.0 (instalator sam to sprawdzi i przerwie instalację). Do podstawowych zastosowań wystarczy Mikrus 2.1, a przy większej liczbie automatyzacji lub wersji z PostgreSQL polecamy minimum Mikrusa 3.0.
+
 Instalacja aplikacji N8N na Mikrusie odbywa się za pomocą jednego polecenia. Jedyne, co musisz zrobić, to podjąć decyzję, czy chcesz skorzystać z wersji bazującej na bazie danych SQLite, czy też używać bardziej wydajnej bazy PostgreSQL. 
+
+Instalacja wersji wykorzystującej bazę SQLite (zalecane):
 
 ```bash
 n8n_install
 ```
 
-Instalacja wersji wykorzystującej bazę SQLite
+Instalacja wersji wykorzystującej bazę PostgreSQL:
 
 ```bash
 n8n_install_postgres
 ```
 
+Jeśli nie masz jeszcze zainstalowanego Dockera, instalator zrobi to za Ciebie.
+
 ### Wymuszenie aktualizacji
 
-Jeśli z jakiegoś powodu chcesz natychmiast (bez czekania na automat) zaktualizować swoją instancję do najnowszej dostępnej wersji, możesz wpisać polecenie:
+Jeśli z jakiegoś powodu chcesz natychmiast (bez czekania na automat) zaktualizować swoją instancję do najnowszej stabilnej wersji, możesz wpisać polecenie:
 
 ```bash
 n8n_update
 ```
 
-### Przejście na wersję BETA
+Polecenie samo rozpozna, czy korzystasz z wersji z SQLite, czy z PostgreSQL. Twoje dane (workflowy, dane logowania) zostaną zachowane.
 
-Co pewien czas w aplikacji N8N pojawiają się nowe moduły i funkcje, które na początku trafiają jedynie do wersji eksperymentalnej. Instalator dostępny na Mikrusie zawsze instaluje wersję stabilną. Jeśli chcesz zmienić to zachowanie i przejść na wersję rozwojową, wydaj poniższe polecenie. 
+### Reset hasła do N8N
 
-```bash
-n8n_update beta
-```
-
-Do wersji stabilnej możesz powrócić wydając polecenie:
+Jeśli zapomnisz hasła do swojej instancji N8N, możesz je zresetować poleceniem:
 
 ```bash
-n8n_update latest
+n8n_password
 ```
-
-> Uwaga: pamiętaj, że wersję rozwojową/testową aplikacji instalujesz na własną odpowiedzialność. Może ona być mniej stabilna od wersji oficjalnej.
 
 
 ### Co automatycznie ogarnia instalator?
@@ -56,8 +56,10 @@ Na wielu hostingach samodzielnie musisz dbać o aktualizację aplikacji do najno
 Po zainstalowaniu N8N na Mikrusie:
 
 - oprogramowanie samoczynnie aktualizuje się do najnowszej wersji nie częściej jak raz na 3 dni (o ile nowa wersja jest dostępna)
-- codziennie w katalogu /backup/n8n/ wykonywana jest kopia bazy danych Twojej instancji
+- codziennie (w nocy, około godziny 4:00) w katalogu /backup/n8n/ wykonywana jest kopia bazy danych Twojej instancji. Przechowywane są kopie z ostatnich 7 dni
 - Twoja instancja otrzymuje automatyczną subdomenę w domenie "wykr.es"
+
+> 💡 Kopie w /backup/n8n/ leżą na tym samym serwerze co N8N. Jeśli zależy Ci na bezpieczeństwie danych, kopiuj je dodatkowo w inne miejsce, np. na [Strych](/strych_backupy). Backup możesz też wykonać ręcznie w dowolnym momencie poleceniem `n8n_backup RUN`.
 
 ### Automatyczna subdomena
 

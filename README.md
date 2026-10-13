@@ -6,11 +6,11 @@ Wspaniale! Pliki wiki (w formacie Markdown) znajdują się w katalogu `/content`
 
 Aby pobrać i zbudować dokumentację użyj
 ```bash
-git clone git@github.com:unkn0w/mikrus-dokumentacja.git --recursive
+git clone git@github.com:Mrugalski-pl/mikrus-dokumentacja.git --recursive
 ```
 lub po http
 ```bash
-git clone https://github.com/unkn0w/mikrus-dokumentacja.git --recursive
+git clone https://github.com/Mrugalski-pl/mikrus-dokumentacja.git --recursive
 ```
 następnie przejdź do katalogu
 ```bash

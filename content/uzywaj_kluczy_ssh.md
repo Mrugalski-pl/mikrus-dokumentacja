@@ -7,7 +7,7 @@ Zachęcam jednak do tego, abyś przestał używać haseł, a zaczął pracę z k
 Aby zacząć używać kluczy, wydaj następujące polecenie **na Twoim komputerze** (nie na Mikrusie!):
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C mikrus -f ~/.ssh/mikrus
+ssh-keygen -t ed25519 -C mikrus -f ~/.ssh/mikrus
 ```
 
 Następnie skopiuj do schowka **zawartość** pliku: 
@@ -21,7 +21,15 @@ Następnie skopiuj do schowka **zawartość** pliku:
 > notepad %USERPROFILE%\.ssh\mikrus.pub 
 > ``` 
 
-Teraz musisz przystosować Mikrusa do logowania bez hasła:
+> 💡 `ed25519` to nowoczesny i zalecany typ klucza. Jeśli korzystasz z bardzo starego oprogramowania, które go nie obsługuje, wygeneruj klucz RSA: `ssh-keygen -t rsa -b 4096 -C mikrus -f ~/.ssh/mikrus`
+
+## Najprościej: przez panel
+
+W panelu Mikrusa wybierz menu **Mój VPS** → **[Klucz SSH](https://mikr.us/panel/?a=sshkey)** i wklej tam zawartość pliku `mikrus.pub`. Klucz możesz od razu wgrać na działający serwer (pojawi się na nim po 3-4 minutach), a dodatkowo **będzie on automatycznie wrzucany na serwer po każdej reinstalacji systemu**.
+
+## Ręcznie: na serwerze
+
+Jeśli wolisz zrobić to samodzielnie, musisz przystosować Mikrusa do logowania bez hasła:
 
 1. zaloguj się na swoją maszynę przez SSH
 

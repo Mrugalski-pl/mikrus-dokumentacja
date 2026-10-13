@@ -18,14 +18,14 @@
     
     Jest to opłata **ROCZNA**. Nie oferujemy możliwości płatności miesięcznej, kwartalnej, ani ratalnej ;)
     
-- Czy będę mógł przejść z oferty 1.0 na 2.x lub 3.x? A z wersji 2.x na 3.x?
+- Czy mogę zmienić plan (np. z 2.1 na 3.5)?
     
-    Tak. Dla migracji 2.x → 3.x ten proces jest automatyczny. Po zalogowaniu się do panelu znajdziesz taką opcję. Natomiast wersja 1.0 wiąże się ze zmianą serwera odpowiedniego pod daną wersję. Należy wtedy zgłosić taką prośbę poprzez system ticketów lub na “pomoc@mikr.us”.
+    Tak. Migracje między wersjami 2.1, 3.0 i 3.5 są zazwyczaj automatyczne i wykonywane 'w miejscu', bez przestoju serwera - opcję znajdziesz w panelu (menu **Mój VPS** → **Upgrade serwera**). Upgrade z wersji 1.0 wymaga przeniesienia VPS-a na inny, mocniejszy serwer dedykowany, co wiąże się z krótkim przestojem. Podobnie jest z migracją na wersje 4.x - wymaga ona interwencji administratora. W takich przypadkach zgłoś prośbę przez system ticketów w panelu lub na “pomoc@mikr.us”.
     Koszty migracji wynoszą tyle, co zakup serwera docelowego, a pozostałe dni abonamentu są przelewane na nowy serwer (z zachowaniem proporcji wartości serwera).
     
 - Jak poradzę sobie bez adresu IPv4?
     
-    Otrzymasz na start 2 przekierowane porty na IPv4 + jeden do połączenia przez SSH. Docelowo możesz mieć aż 7 przekierowanych portów na swój serwer. Posiadasz także adres IPv6, na którym możesz postawić tyle usług, ile zechcesz. [Przeczytaj także koniecznie ten artykuł](../o_co_chodzi_z_ipv6).
+    Otrzymasz na start 2 przekierowane porty TCP/UDP na IPv4 + jeden do połączenia przez SSH. W panelu możesz za darmo dobrać kolejne 5 portów TCP (na Mikrusie 3.5 - 10, a z Mikrusem PRO - 35), więc standardowo możesz mieć łącznie do 7 portów usługowych. [Więcej o portach](../udostepnione_porty). Posiadasz także adres IPv6, na którym możesz postawić tyle usług, ile zechcesz. [Przeczytaj także koniecznie ten artykuł](../o_co_chodzi_z_ipv6).
     
 - Czy do serwera otrzymam jakiś panel sterowania?
     
@@ -36,7 +36,7 @@
 
 - Czy na Mikrusie można postawić stronę na Wordpressie?
     
-    Tak, jest to bezproblemowe. Mikrus hostuje setki blogów na Wordpressie :) 
+    Tak, jest to bezproblemowe. Mikrus hostuje tysiące blogów na Wordpressie :) Do prostej strony wystarczy Mikrus 2.1, a do cięższych zastosowań (np. WooCommerce) polecamy minimum wersję 3.0. Jeśli skorzystasz z [darmowej, współdzielonej bazy MySQL](../wspoldzielone_bazy_danych) zamiast stawiać własną, WordPress ruszy nawet na Mikrusie 1.0.
     
 - Czy na serwerze mogę hostować kilka stron internetowych?
     
@@ -68,12 +68,12 @@
 
 - {{<rawhtml>}}<h4 id="imie-na-srvxx">{{</rawhtml>}} Skąd mam wiedzieć na jakim serwerze głównym (`srvXX`) jest mój serwer? {{<rawhtml>}}</h4><a href="#imie-na-srvxx" class="anchor" hidden>#</a>{{</rawhtml>}}
 
-    Przykładowo, dla serwera `monika100` otwórz stronę http://monika100.mikrus.xyz i przeczytaj adres (będzie większą czcionką zakończony na `.mikr.us`). Jeżeli przeglądarka wyświetli błąd lub problem z certyfikatem należy upewnić się że wchodzimy na adres przez http (nie http**s**).
+    Nazwę serwera głównego znajdziesz w mailu powitalnym oraz na stronie głównej panelu (w gotowym poleceniu `ssh`). Możesz też skorzystać ze sztuczki: dla serwera `monika100` otwórz stronę http://monika100.mikrus.xyz - zostaniesz przekierowany na adres serwera głównego (np. `srv16.mikr.us`). Upewnij się, że wchodzisz na ten adres przez http (nie http**s**).
 ## Co wolno, a czego nie wolno
 
 - Czy na Mikrusie można postawić serwer Minecrafta?
     
-    Po pierwsze, technicznie byłoby to bardzo trudne (do wygodnej gry potrzebujesz około 4GB RAM), a po drugie, regulamin Mikrusa zabrania stawiania serwerów gier.
+    Nie. Regulamin Mikrusa zabrania stawiania serwerów gier. Wyjątkiem jest sytuacja, w której jesteś developerem, rozwijasz własną grę i potrzebujesz serwera do testów.
     
 - Czy Mikrus nadaje się do serwera TeamSpeak lub bota muzycznego na Discord?
     
@@ -81,7 +81,11 @@
     
 - Czy używanie Torrenta i innych aplikacji P2P jest dozwolone?
     
-    Jest to zabronione
+    Rozpowszechnianie treści objętych prawami autorskimi (Torrent i inne aplikacje do wymiany nielegalnych plików) jest zabronione i grozi natychmiastową blokadą konta. Jeśli Twój soft do backupu korzysta z technologii P2P (np. Syncthing), to jest to dopuszczalne.
+
+- Czy mogę skanować porty lub robić testy penetracyjne?
+
+    Nie. Wszelkie działania związane z testowaniem zabezpieczeń serwerów, sieci czy usług są na Mikrusie zabronione. W przypadku wykrycia skanowania portów (np. aplikacją nmap) automat czuwający nad stabilnością serwerów może bez ostrzeżenia wyłączyć Twojego VPS-a. To zasady obowiązujące w serwerowni, z której korzystamy.
     
 
 ## Pytania na temat głównych serwerów
@@ -92,11 +96,11 @@
     
 - Jakie są parametry głównych serwerów, na których stoją VPSy?
     
-    Obecnie, serwery Mikrusa to maszyny EX52-NVMe oraz AX-41 z oferty Hetznera (128GB RAM, dyski SSD NVMe, CPU i7-8700 lub AMD Ryzen 5) 
+    Obecnie Mikrusy stoją na serwerach dedykowanych z oferty Hetznera wyposażonych w 128GB lub 256GB RAM i dyski SSD NVMe (procesory Intel Core i7, AMD Ryzen, a w przypadku Mikrusów 4.x - AMD EPYC).
     
 - Na jakim łączu stoją serwery?
     
-    Serwery Mikrusa posiadają łącze 1Gbps
+    Serwery Mikrusa posiadają łącze 1Gbps, współdzielone między użytkowników konkretnego serwera dedykowanego. Twój VPS wychodzi do sieci z fińskiego adresu IP.
 
 - Czy adresy IPv4 serwerów są stałe?
 

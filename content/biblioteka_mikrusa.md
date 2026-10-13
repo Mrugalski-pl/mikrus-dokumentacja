@@ -1,6 +1,6 @@
 Baza, którą właśnie czytasz, przeznaczona jest dla użytkowników serwerów [MIKR.US](http://mikr.US) i ma za zadanie dostarczyć im niezbędnej wiedzy potrzebnej do wzrastania w roli admina, DevOpsa, czy świadomego programisty.
 
-Baza wiedzy jest systematycznie uzupełniana o nowe znaleziska. Chcesz coś do niej dodać? Wyślij linka na [kontakt@mikr.us](mailto:kontakt@mikr.us) lub dodaj ją na [GitHub-ie](https://github.com/unkn0w/mikrus-dokumentacja/)!
+Baza wiedzy jest systematycznie uzupełniana o nowe znaleziska. Chcesz coś do niej dodać? Wyślij linka na [kontakt@mikr.us](mailto:kontakt@mikr.us) lub dodaj ją na [GitHub-ie](https://github.com/Mrugalski-pl/mikrus-dokumentacja/)!
 
 * [Podstawy pracy w terminalu linuksowym - poradnik](https://github.com/jlevy/the-art-of-command-line/blob/master/README-pl.md)
 * [Praca w terminalu (film) - absolutne podstawy](https://www.youtube.com/watch?v=hTNEVYcG1kc)
